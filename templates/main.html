@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-face.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/font-awesome-4.7/css/font-awesome.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/font-awesome-5/css/fontawesome-all.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/mdi-font/css/material-design-iconic-font.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap-4.1/bootstrap.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/animsition/animsition.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/wow/animate.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/slick/slick.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}" media="all">
+
+</head>
+
+<body class="animsition">
+   <!-- modal large -->
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Meningitis Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST">
+                    <div class="modal-body">
+                        <div class="row form-group">
+                            <div class="col-12 ">
+                                <select name="gender_male" class="form-control" required>
+                                    <option disabled="disabled" selected="selected" value="">Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-12 ">
+                                <select name="month" class="form-control" required>
+                                    <option disabled="disabled" value="" selected="selected">Month</option>
+                                    <option value="january">january</option>
+                                    <option value="february">february</option>
+                                    <option value="march">march</option>
+                                    <option value="april">april</option>
+                                    <option value="may">may</option>
+                                    <option value="june">june</option>
+                                    <option value="july">july</option>
+                                    <option value="august">august</option>
+                                    <option value="september">september</option>
+                                    <option value="october">october</option>
+                                    <option value="november">november</option>
+                                    <option value="december">december</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <input class="form-control" type="number" placeholder="Age (e.g 42)" name="age" required>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-12 ">
+                                <select name="adult_group" class="form-control" required>
+                                    <option disabled="disabled" value="" selected="selected">Adult Group</option>
+                                    <option>Adult</option>
+                                    <option>Child</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-12 ">
+                                <select name="serotype" class="form-control" required>
+                                    <option disabled="disabled" value="" selected="selected">serotype</option>
+                                    <option value="NmA">NmA</option>
+                                    <option value="NmC">NmC</option>
+                                    <option value="NmW">NmW</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-12 ">
+                                <select name="alive" class="form-control" required>
+                                    <option disabled="disabled" value="" selected="selected">Alive/Dead</option>
+                                    <option>Alive</option>
+                                    <option>Dead</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit </button>
+                      </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <!-- end modal large -->
+
+    <div class="page-wrapper">
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                            <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
+                                <div class="bg-overlay bg-overlay--blue"></div>
+                                <h3>
+                                    <i class="zmdi zmdi-comment-text"></i>Meningitis Location Prediction in Nigeria</h3>
+                            </div>
+                            <div class="au-inbox-wrap js-inbox-wrap">
+                                <div class="au-message js-list-load">
+                                    <div class="au-message__noti">
+                                        <p>To help the government curb the outbreak of Meningitis in Nigeria, we developed this AI model that predicts the location of an infected person in any Nigerian State. Data needed includes gender, month of meningitis confirmation, age, adult group, serotype and patient's life status. The AI runs the details through 74 pretrained models and generates results in the form of a Map, Bar Plot and Table. Click on the form button below to begin.
+                                        </p>
+                                    </div>
+                                    <div class="au-message__footer">
+                                        <button type="button" class="au-btn au-btn-icon au-btn--blue" data-toggle="modal" data-target="#largeModal">
+											Form
+										</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        {% if result %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="overview-wrap">
+                                        <h2 class="title-1">Overview (Top three states with the highest outbreak probability)</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-t-25">
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="overview-item overview-item--c1">
+                                        <div class="overview__inner">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-n-1-square"></i>
+                                                </div>
+                                                {% if overview2 %}
+                                                <div class="text">
+                                                    <h2> {{ test_prediction[0][2] }}</h2>
+                                                    <span>{{ test_prediction[0][0] }}</span>
+                                                </div>
+                                                {% else %}
+                                                <div class="text">
+                                                    <h2> N/A </h2>
+                                                    <span> N/A </span>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="overview-item overview-item--c2">
+                                        <div class="overview__inner">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-n-2-square"></i>
+                                                </div>
+                                                {% if overview2 %}
+                                                <div class="text">
+                                                    <h2>{{ test_prediction[1][2] }}</h2>
+                                                    <span>{{ test_prediction[1][0] }}</span>
+                                                </div>
+                                                {% else %}
+                                                <div class="text">
+                                                    <h2> N/A </h2>
+                                                    <span> N/A </span>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="overview-item overview-item--c3">
+                                        <div class="overview__inner">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-n-3-square"></i>
+                                                </div>
+                                                {% if overview1 %}
+                                                <div class="text">
+                                                    <h2>{{ test_prediction[2][2] }}</h2>
+                                                    <span>{{ test_prediction[2][0] }}</span>
+                                                </div>
+                                                {% else %}
+                                                <div class="text">
+                                                    <h2> N/A </h2>
+                                                    <span> N/A </span>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row">
+                                <div class="col-lg-6">
+                                    <div class="au-card recent-report">
+                                        <div class="au-card-inner">
+                                            <h3 class="title-2">Map of possible locations</h3>
+                                            {{choro_chart2}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="au-card recent-report">
+                                        <div class="au-card-inner">
+                                            <h3 class="title-2 tm-b-5">bar graph of possible outbreak locations</h3>
+                                            {{fig_chart2}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                    <h2 class="title-1 m-b-25">Predicted Locations</h2>
+                                    <div class="table-responsive table--no-card m-b-40">
+                                        <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>State</th>
+                                                    <th class="text-right">Percent Probability</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for i in range(0,length) %}
+                                                <tr>
+                                                    <td>{{ i+1 }}</td>
+                                                    <td>{{ test_prediction[i][2] }}</td>
+                                                    <td class="text-right">{{ test_prediction[i][0] }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap-4.1/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/slick/slick.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/wow/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/animsition/animsition.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/counter-up/jquery.counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/chartjs/Chart.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- Main JS-->
+
+
+</body>
+
+</html>
+<!-- end document-->
