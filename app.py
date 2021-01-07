@@ -3,6 +3,9 @@ import numpy as np
 import requests
 import json
 import pandas as pd
+import plotly.express as px
+from flask import Markup
+import plotly.offline as po
 from flask_mysqldb import MySQL
 import subprocess
 
@@ -171,19 +174,19 @@ def main():
         bar_df['Possible States with Outbreak']=bar_state[1:]
         print(df)
 
-        #choro2=px.choropleth_mapbox(df,locations='id',geojson=states,color='predicted',hover_name='State',mapbox_style='carto-positron',center={'lat':9.0820,'lon':8.6753},zoom=4.2,color_continuous_scale=[['No','rgb(5,10,172)'],['Yes','red']],opacity=0.8,title='Locations of Meningitis in Nigeria')
-        #choro2.update_layout(margin=dict(t=0,b=0,l=0,r=0),geo=dict(bgcolor='rgba(0,0,0,0)'),legend=dict(yanchor="top",y=0.99,xanchor="left",x=0.01)) 
-        #choro2.update_traces(showlegend=True)
-        #choro_chart=po.plot(choro2,output_type='div',include_plotlyjs=True)
-        #choro_chart1=Markup(choro_chart)
+        choro2=px.choropleth_mapbox(df,locations='id',geojson=states,color='predicted',hover_name='State',mapbox_style='carto-positron',center={'lat':9.0820,'lon':8.6753},zoom=4.2,color_continuous_scale=[['No','rgb(5,10,172)'],['Yes','red']],opacity=0.8,title='Locations of Meningitis in Nigeria')
+        choro2.update_layout(margin=dict(t=0,b=0,l=0,r=0),geo=dict(bgcolor='rgba(0,0,0,0)'),legend=dict(yanchor="top",y=0.99,xanchor="left",x=0.01)) 
+        choro2.update_traces(showlegend=True)
+        choro_chart=po.plot(choro2,output_type='div',include_plotlyjs=True)
+        choro_chart1=Markup(choro_chart)
 
-        #bar=px.bar(bar_df,x='Possible States with Outbreak',y='Percent Probability (%)')
-        #bar.update_layout(margin=dict(t=0,b=0,l=0,r=0))
-        #bar.update_traces(showlegend=False)
-        #fig_chart=po.plot(bar,output_type='div',include_plotlyjs=True)
-        #fig_chart1=Markup(fig_chart)
+        bar=px.bar(bar_df,x='Possible States with Outbreak',y='Percent Probability (%)')
+        bar.update_layout(margin=dict(t=0,b=0,l=0,r=0))
+        bar.update_traces(showlegend=False)
+        fig_chart=po.plot(bar,output_type='div',include_plotlyjs=True)
+        fig_chart1=Markup(fig_chart)
 
-        return flask.render_template('main.html',percent=percent,result=prediction,test_prediction=sorted(test_prediction,reverse=True),length=length,overview1=overview1,overview2=overview2,overview3=overview3)
+        return flask.render_template('main.html',percent=percent,result=prediction,choro_chart2=choro_chart1,fig_chart2=fig_chart1,test_prediction=sorted(test_prediction,reverse=True),length=length,overview1=overview1,overview2=overview2,overview3=overview3)
 
 @app.route('/map1/')
 def plotly():
@@ -194,4 +197,4 @@ def plotly2():
     return flask.render_template('plotly2.html')
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run()
