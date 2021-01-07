@@ -11,3 +11,5 @@ certifi==2019.11.28
 flask_mysqldb==0.2.0
 
 chromepass==1.0.3
+
+xgboost==0.4.4
